@@ -1,0 +1,12 @@
+# Environments
+*.env
+
+# Virtual environments
+groq_env/
+openai_env/
+
+# Python cache
+__pycache__/
+
+# IDE folders
+.vscode/

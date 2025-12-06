@@ -1,0 +1,15 @@
+import core
+import llm
+
+flow main
+    activate automating intent detection
+    activate generating user intent for unhandled user utterance
+    activate llm continuation
+    activate reply to greeting
+
+flow reply to greeting
+    user expressed greeting
+    bot say "Hello! What's the weather like at your place?"
+
+flow user expressed greeting
+    user said "hi" or user said "hello" or user said "howdy"
