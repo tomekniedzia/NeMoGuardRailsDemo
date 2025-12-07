@@ -2,20 +2,18 @@ import core
 import llm
 
 flow main
-    activate check true false
-    activate automating intent detection
-    activate generating user intent for unhandled user utterance
-    activate llm continuation
-    activate reply to greeting
+    activate check_true_false
+    activate reply_to_greeting
+    activate handle_unhandled
 
-flow reply to greeting
-    user expressed greeting
+flow reply_to_greeting
+    user_expressed_greeting
     bot say "Hello! What's the weather like at your place?"
 
-flow user expressed greeting
+flow user_expressed_greeting
     user said "hi" or user said "hello" or user said "howdy"
 
-flow check true false
+flow check_true_false
     $input = user said something
     if $input == "true"
         bot say "Yes, it is true!"
@@ -23,3 +21,7 @@ flow check true false
         bot say "No, it is false!"
     else
         continue
+
+flow handle_unhandled
+    user said something
+    llm continue interaction
