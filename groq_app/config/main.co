@@ -2,6 +2,7 @@ import core
 import llm
 
 flow main
+    activate check true false
     activate automating intent detection
     activate generating user intent for unhandled user utterance
     activate llm continuation
@@ -13,3 +14,12 @@ flow reply to greeting
 
 flow user expressed greeting
     user said "hi" or user said "hello" or user said "howdy"
+
+flow check true false
+    $input = user said something
+    if $input == "true"
+        bot say "Yes, it is true!"
+    else if $input == "false"
+        bot say "No, it is false!"
+    else
+        continue
